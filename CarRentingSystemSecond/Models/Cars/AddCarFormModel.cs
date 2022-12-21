@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CarRentingSystemSecond.Data.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarRentingSystemSecond.Models.Cars
 {
@@ -30,6 +31,6 @@ namespace CarRentingSystemSecond.Models.Cars
         [Display(Name = "Category")]
         public int CategoryId { get; init; }
 
-        public IEnumerable<CarCategoryViewModel> Categories { get; set; }
+        public IEnumerable<CarCategoryViewModel>? Categories { get; set; }
     }
 }

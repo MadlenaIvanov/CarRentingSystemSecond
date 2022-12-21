@@ -20,19 +20,20 @@
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="CategoryId" class="form-label"></label>
-                    <select asp-for="CategoryId" class="form-control">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control" placeholder="This is the perfect car..."></textarea>
+                </div>
+
+                <div class="form-floating">
+                    <select asp-for="CategoryId" class="form-select" style="margin-top:1%">
                         @foreach (var category in Model.Categories)
                         {
                             <option value="@category.Id">@category.Name</option>
                         }
                     </select>
+                    <label asp-for="CategoryId">Pick a category</label>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="Description" class="form-label"></label>
-                    <textarea asp-for="Description" class="form-control" placeholder="This is the perfect car..."></textarea>
-                </div>
                 <div class="mb-3">
                     <label asp-for="Year" class="form-label"></label>
                     <input asp-for="Year" class="form-control" placeholder="2022">
@@ -41,6 +42,18 @@
                     <label asp-for="ImageUrl" class="form-label"></label>
                     <input asp-for="ImageUrl" class="form-control" placeholder="Your fine URL here.">
                 </div>
+
+
+                @*THIS HTML FOR A DROPDOWN MENU IS WRONG!!!!!!*@
+                @*  <div class="form-group">
+                    <label asp-for="CategoryId"></label>
+                    <select asp-for="CategoryId" class="form-control">
+                    @foreach (var category in Model.Categories)
+                    {
+                    <option value="@category.Id">@category.Name</option>
+                    }
+                    </select>
+                    </div>*@
 
                 <input class="btn btn-primary" type="submit" value="Save" />
             </form>
