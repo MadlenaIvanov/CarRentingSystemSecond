@@ -1,23 +1,24 @@
-﻿using CarRentingSystemSecond.Data.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using static CarRentingSystemSecond.Data.DataConstraints;
+
 
 namespace CarRentingSystemSecond.Models.Cars
 {
     public class AddCarFormModel
     {
         [Required]
-        //[MinLength(CarBrandMinLength)]
-        ///[MaxLength(CarBrandMaxLength)]
+        [StringLength(CarBrandMaxLength, MinimumLength = CarBrandMinLength)]
         public string Brand { get; init; }
 
         [Required]
-        //[MinLength(CarModelMinLength)]
-        //[MaxLength(CarModelMaxLength)]
+        [StringLength(CarModelMaxLength, MinimumLength = CarModelMinLength)]
         public string Model { get; init; }
 
         [Required]
-        //[MinLength(CarDescriptionMinLength)]
-        //[MaxLength(CarDescriptionMaxLength)]
+        [StringLength(
+            int.MaxValue, 
+            MinimumLength = CarDescriptionMinLength,
+            ErrorMessage = "The Description must be at least {2} symbols long.")]
         public string Description { get; init; }
 
         [Required]
@@ -25,7 +26,7 @@ namespace CarRentingSystemSecond.Models.Cars
         [Url]
         public string ImageUrl { get; init; }
 
-        //[Range(CarYearMinValue, CarYearMaxValue)]
+        [Range(CarYearMinValue, CarYearMaxValue)]
         public int Year { get; init; }
 
         [Display(Name = "Category")]
