@@ -1,10 +1,23 @@
-﻿@model IEnumerable<CarListingViewModel>
+﻿@model AllCarsQueryModel
 
 <div class="row">
-    @foreach (var car in Model)
+    <form method="get">
+        <div class="col-md-3">
+            <div class="mb-3">
+                <label asp-for="SearchTerm" class="form-label"></label>
+                <input asp-for="SearchTerm" class="form-control" placeholder="BMW, 640D, etc...">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="row">
+    @foreach (var car in Model.Cars)
     {
         <div class="col-md-4">
-            <div class="card">
+            <div class="card mb-3">
                 <img src="@car.ImageUrl" class="card-img-top" alt="@car.Brand @car.Model - @car.Year (@car.Category)">
                 <div class="card-body text-center">
                     <h5 class="card-title text-center">@car.Year @car.Brand @car.Model (@car.Category)</h5>
@@ -13,3 +26,4 @@
             </div>
         </div>
     }
+</div>

@@ -35,7 +35,10 @@ namespace CarRentingSystemSecond.Controllers
                 })
                 .ToList();
 
-            return View(cars);  
+            return View(new AllCarsQueryModel
+            {
+                Cars = cars
+            });  
         }
 
         [HttpPost]
