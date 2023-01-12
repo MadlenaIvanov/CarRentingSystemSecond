@@ -1,15 +1,26 @@
 ﻿@model AllCarsQueryModel
 
-<div class="row">
-    <form method="get">
+
+<form method="get">
+    <div class="row mb-5">
         <div class="col-md-3">
-            <div class="mb-3">
-                <label asp-for="SearchTerm" class="form-label"></label>
-                <input asp-for="SearchTerm" class="form-control" placeholder="BMW, 640D, etc...">
-            </div>
+            <label asp-for="SearchTerm" class="form-label"></label>
+            <input asp-for="SearchTerm" class="form-control" placeholder="BMW, 640D, etc...">
         </div>
-    </form>
-</div>
+
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-3">
+            <input type="submit" class="btn btn-primary d-none" value="Search">
+        </div>
+
+    </div>
+</form>
+
 
 
 

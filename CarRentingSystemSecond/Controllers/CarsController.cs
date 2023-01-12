@@ -19,10 +19,20 @@ namespace CarRentingSystemSecond.Controllers
             Categories = this.GetCarCategories()
         });
 
-        public IActionResult All()
+        public IActionResult All(string searchTerm)
         {
-            var cars = this.data
-                .Cars
+            var carsQuery = this.data.Cars.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                carsQuery = carsQuery.Where(c =>
+                    c.Brand.ToLower().Contains(searchTerm.ToLower()) ||
+                    c.Model.ToLower().Contains(searchTerm.ToLower()) ||
+                    c.Description.ToLower().Contains(searchTerm.ToLower()));
+            }
+
+
+            var cars = carsQuery
                 .OrderByDescending(c => c.Id)
                 .Select(c => new CarListingViewModel
                 {
@@ -37,7 +47,8 @@ namespace CarRentingSystemSecond.Controllers
 
             return View(new AllCarsQueryModel
             {
-                Cars = cars
+                Cars = cars,
+                SearchTerm = searchTerm
             });  
         }
 
