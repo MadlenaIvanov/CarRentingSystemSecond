@@ -9,6 +9,15 @@
         </div>
 
         <div class="col-md-3">
+            <div class="form-floating">
+                <select asp-for="Brand" class="form-select" style="margin-top:1%">
+                    @foreach (var brand in Model.Brands)
+                    {
+                        <option value="@brand">@brand</option>
+                    }
+                </select>
+                <label asp-for="Brand">Pick a category</label>
+            </div>
         </div>
 
         <div class="col-md-3">

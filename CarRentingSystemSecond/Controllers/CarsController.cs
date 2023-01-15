@@ -19,9 +19,11 @@ namespace CarRentingSystemSecond.Controllers
             Categories = this.GetCarCategories()
         });
 
-        public IActionResult All(string searchTerm)
+        public IActionResult All(string brand, string searchTerm)
         {
             var carsQuery = this.data.Cars.AsQueryable();
+
+
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
@@ -45,8 +47,15 @@ namespace CarRentingSystemSecond.Controllers
                 })
                 .ToList();
 
+            var carBrands = this.data
+                .Cars
+                .Select(c => c.Brand)
+                .Distinct()
+                .ToList();
+
             return View(new AllCarsQueryModel
             {
+                Brands = carBrands,
                 Cars = cars,
                 SearchTerm = searchTerm
             });  
