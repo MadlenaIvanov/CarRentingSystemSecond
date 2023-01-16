@@ -10,17 +10,26 @@
 
         <div class="col-md-3">
             <div class="form-floating">
-                <select asp-for="Brand" class="form-select" style="margin-top:1%">
+                <select asp-for="Brand" class="form-select" style="margin-top:5%">
+                    <option value="">All</option>
                     @foreach (var brand in Model.Brands)
                     {
                         <option value="@brand">@brand</option>
                     }
                 </select>
-                <label asp-for="Brand">Pick a category</label>
+                <label asp-for="Brand">Pick a brand</label>
             </div>
         </div>
 
         <div class="col-md-3">
+            <div class="form-floating">
+                <select asp-for="Sorting" class="form-select" style="margin-top:5%">
+                    <option value="0" selected>Date Created</option>
+                    <option value="1">Year</option>
+                    <option value="2">Brand And Model</option>
+                </select>
+                <label asp-for="Sorting"></label>
+            </div>
         </div>
 
         <div class="col-md-3">
