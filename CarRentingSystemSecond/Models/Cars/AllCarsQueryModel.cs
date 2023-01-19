@@ -15,6 +15,8 @@ namespace CarRentingSystemSecond.Models.Cars
 
         public int CurrentPage { get; init; } = 1;
 
+        public int TotalCars { get; set; }
+
         public CarSorting Sorting { get; init; }
 
         public IEnumerable<CarListingViewModel> Cars { get; set; }
