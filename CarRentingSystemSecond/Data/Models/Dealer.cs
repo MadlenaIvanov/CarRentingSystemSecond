@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarRentingSystemSecond.Data.Models
 {
@@ -10,15 +11,10 @@ namespace CarRentingSystemSecond.Data.Models
         public string Name { get; set; }
 
         [Required]
-        public string Age { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required]
-        public string Description { get; set; }
-
-        [Required]
-        public string ImageUrl { get; set; }
-
-        public int Year { get; set; }
-
+        public string UserId { get; set; }
+        public IEnumerable<Car> Cars { get; init; } = new List<Car>();
     }
 }
