@@ -10,5 +10,14 @@
         public const int CarDescriptionMinLength = 10;
         public const int CarYearMinValue = 2000;
         public const int CarYearMaxValue = 2100;
+
+        public const int CategoryNameMaxLength = 30;
+
+
+        public const int DealerNameMaxLength = 30;
+        public const int DealerPhoneNumberMaxLength = 20;
+
+
+
     }
 }
